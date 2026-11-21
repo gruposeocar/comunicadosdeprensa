@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Guia de contenidos: el bloque que trae el trafico"""
 from build import escribir, migas, faq_html, CAJA_LATERAL, articulo_schema
+from graficos import piramide
 
 
 def guia(ruta, h1, titulo, desc, entradilla, cuerpo_html, preguntas, actualizado="Noviembre de 2026"):
@@ -110,6 +111,7 @@ def estructura():
 <p>Una nota de prensa tiene siete partes y el orden no es negociable. Un periodista lee de arriba abajo
 y abandona en cuanto deja de encontrar informacion nueva, asi que lo mas importante va primero. Es lo
 que en redaccion se llama piramide invertida.</p>
+{PIRAMIDE}
 
 <h2>1. Titular</h2>
 <p>Una linea, maximo quince palabras, escrita como la publicaria el medio. No es el nombre de tu
@@ -188,6 +190,7 @@ y modelos completos en los <a href="/guia/ejemplos-de-notas-de-prensa/">ejemplos
          "El parrafo fijo sobre la empresa que cierra todas tus notas de prensa: a que se dedica, desde "
          "cuando, tamano y donde opera. Siempre identico."),
     ]
+    c = c.replace("{PIRAMIDE}", piramide())
     return guia("/guia/estructura-de-una-nota-de-prensa/",
                 "Estructura de una nota de prensa",
                 "Estructura de una nota de prensa: las 7 partes en orden",

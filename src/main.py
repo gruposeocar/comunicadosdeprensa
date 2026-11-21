@@ -3,7 +3,7 @@
 import os, shutil, datetime
 import build
 from build import OUT, SITE, CSS
-import paginas, servicios, guias, guias2, medios, legal
+import paginas, servicios, guias, guias2, medios, legal, comunicados
 
 if os.path.isdir(OUT):
     shutil.rmtree(OUT)
@@ -34,6 +34,9 @@ rutas.append(guias2.evento())
 rutas.append(guias2.diferencia())
 rutas.append(guias2.ingles())
 
+# Comunicados por categoria
+rutas.extend(comunicados.todas())
+
 # Directorio
 rutas.append(medios.directorio())
 
@@ -47,16 +50,21 @@ rutas.append(legal.cookies())
 with open(os.path.join(OUT, "estilo.css"), "w", encoding="utf-8") as f:
     f.write(CSS)
 
-FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-<rect width="64" height="64" rx="12" fill="#0b4f9e"/>
-<path d="M18 20h28v5H18zM18 30h28v4H18zM18 39h19v4H18z" fill="#fff"/>
+FAVICON = """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+<rect width="40" height="40" rx="8" fill="#0b4f9e"/>
+<rect x="9" y="8" width="22" height="26" rx="3" fill="#fff"/>
+<rect x="13" y="13" width="14" height="3.4" rx="1.2" fill="#0b4f9e"/>
+<rect x="13" y="20" width="14" height="2" rx="1" fill="#9aa4b1"/>
+<rect x="13" y="24.5" width="14" height="2" rx="1" fill="#9aa4b1"/>
+<rect x="13" y="29" width="9" height="2" rx="1" fill="#9aa4b1"/>
+<circle cx="31" cy="10" r="5.5" fill="#c8102e" stroke="#0b4f9e" stroke-width="1.6"/>
 </svg>"""
 with open(os.path.join(OUT, "favicon.svg"), "w", encoding="utf-8") as f:
     f.write(FAVICON)
 
 hoy = datetime.date.today().isoformat()
 PRIOR = {"/": "1.0", "/precios/": "0.9", "/nota-de-prensa/": "0.9",
-         "/comprar-enlaces-prensa/": "0.9", "/medios/": "0.9",
+         "/comprar-enlaces-prensa/": "0.9", "/medios/": "0.9", "/comunicados/": "0.9",
          "/aviso-legal/": "0.3", "/privacidad/": "0.3", "/cookies/": "0.3"}
 urls = []
 for r in rutas:

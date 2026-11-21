@@ -196,7 +196,99 @@ MEDIOS = [
     ("Madridiario", "madridiario.es", "Madrid", "Generalista"),
     ("Telemadrid", "telemadrid.es", "Madrid", "Generalista"),
     ("Somos Malasana", "somosmalasana.com", "Madrid", "Local"),
+    # Nacionales, ampliacion
+    ("El Plural", "elplural.com", "Nacional", "Generalista"),
+    ("The Objective", "theobjective.com", "Nacional", "Generalista"),
+    ("El Debate", "eldebate.com", "Nacional", "Generalista"),
+    ("Libertad Digital", "libertaddigital.com", "Nacional", "Generalista"),
+    ("El Salto", "elsaltodiario.com", "Nacional", "Generalista"),
+    ("La Marea", "lamarea.com", "Nacional", "Generalista"),
+    ("CTXT", "ctxt.es", "Nacional", "Generalista"),
+    ("El Periodico de Espana", "epe.es", "Nacional", "Generalista"),
+    ("Newtral", "newtral.es", "Nacional", "Generalista"),
+    ("Maldita.es", "maldita.es", "Nacional", "Generalista"),
+    ("65YMAS", "65ymas.com", "Nacional", "Generalista"),
+    # Economia
+    ("Forbes Espana", "forbes.es", "Nacional", "Economia"),
+    ("Bolsamania", "bolsamania.com", "Nacional", "Economia"),
+    ("Finanzas.com", "finanzas.com", "Nacional", "Economia"),
+    ("Dirigentes Digital", "dirigentesdigital.com", "Nacional", "Economia"),
+    # Tecnologia
+    ("ComputerWorld Espana", "computerworld.es", "Nacional", "Tecnologia"),
+    ("MuyPymes", "muypymes.com", "Nacional", "Tecnologia"),
+    ("Channel Partner", "channelpartner.es", "Nacional", "Tecnologia"),
+    ("Applesfera", "applesfera.com", "Nacional", "Tecnologia"),
+    # Marketing
+    ("IPMARK", "ipmark.com", "Nacional", "Marketing"),
+    ("Control Publicidad", "controlpublicidad.com", "Nacional", "Marketing"),
+    ("Anuncios", "anuncios.com", "Nacional", "Marketing"),
+    # Recursos humanos
+    ("RRHH Digital", "rrhhdigital.com", "Nacional", "Recursos humanos"),
+    ("Equipos y Talento", "equiposytalento.com", "Nacional", "Recursos humanos"),
+    ("Observatorio RH", "observatoriorh.com", "Nacional", "Recursos humanos"),
+    # Legal
+    ("Legal Today", "legaltoday.com", "Nacional", "Legal"),
+    ("Iberian Lawyer", "iberianlawyer.com", "Nacional", "Legal"),
+    # Salud
+    ("El Medico Interactivo", "elmedicointeractivo.com", "Nacional", "Salud"),
+    ("iSanidad", "isanidad.com", "Nacional", "Salud"),
+    ("Acta Sanitaria", "actasanitaria.com", "Nacional", "Salud"),
+    ("El Global", "elglobal.es", "Nacional", "Salud"),
+    # Energia
+    ("Energy News", "energynews.es", "Nacional", "Energia"),
+    ("Smart Grids Info", "smartgridsinfo.es", "Nacional", "Energia"),
+    # Turismo
+    ("Nexotur", "nexotur.com", "Nacional", "Turismo"),
+    ("Smart Travel News", "smarttravel.news", "Nacional", "Turismo"),
+    ("Restauracion News", "restauracionnews.com", "Nacional", "Turismo"),
+    # Industria, logistica, automocion
+    ("Interempresas", "interempresas.net", "Nacional", "Industria"),
+    ("El Mercantil", "elmercantil.com", "Nacional", "Logistica"),
+    ("Transporte XXI", "transportexxi.com", "Nacional", "Logistica"),
+    ("Autopista", "autopista.es", "Nacional", "Automocion"),
+    ("Auto Bild Espana", "autobild.es", "Nacional", "Automocion"),
+    ("Motorpasion", "motorpasion.com", "Nacional", "Automocion"),
+    # Inmobiliario y distribucion
+    ("Observatorio Inmobiliario", "observatorioinmobiliario.es", "Nacional", "Inmobiliario"),
+    ("Metros2", "metros2.com", "Nacional", "Inmobiliario"),
+    ("Inmodiario", "inmodiario.com", "Nacional", "Inmobiliario"),
+    ("Distribucion Actualidad", "distribucionactualidad.com", "Nacional", "Distribucion"),
+    ("ARAL", "revistaaral.com", "Nacional", "Distribucion"),
+    # Agro
+    ("Agrodigital", "agrodigital.com", "Nacional", "Agroalimentario"),
+    ("Campo Galego", "campogalego.es", "Galicia", "Agroalimentario"),
+    # Galicia
+    ("Galicia Confidencial", "galiciaconfidencial.com", "Galicia", "Generalista"),
+    ("Nos Diario", "nosdiario.gal", "Galicia", "Generalista"),
+    ("Praza Publica", "praza.gal", "Galicia", "Generalista"),
+    ("El Ideal Gallego", "elidealgallego.com", "A Coruna", "Generalista"),
+    ("Diario de Arousa", "diariodearousa.com", "Pontevedra", "Generalista"),
+    ("Diario de Pontevedra", "diariodepontevedra.es", "Pontevedra", "Generalista"),
+    ("Ferrol360", "ferrol360.es", "A Coruna", "Generalista"),
+    # Otras regiones
+    ("Regio7", "regio7.cat", "Barcelona", "Generalista"),
+    ("Diario de Ibiza", "diariodeibiza.es", "Baleares", "Generalista"),
+    ("El Faro de Ceuta", "elfarodeceuta.es", "Ceuta", "Generalista"),
+    ("Melilla Hoy", "melillahoy.es", "Melilla", "Generalista"),
 ]
+
+
+
+PALETA = ["#0b4f9e", "#1f6f54", "#8a4b1f", "#5b3a86", "#1d5f72",
+          "#8a2f3f", "#3f5a2a", "#2c4a7c", "#6b4420", "#44366b"]
+
+
+def monograma(nombre):
+    """Iniciales sobre color propio. No reproduce ninguna marca ajena."""
+    limpio = nombre.replace(".", " ").split()
+    saltar = {"de", "del", "la", "el", "los", "las", "y"}
+    ini = [p[0].upper() for p in limpio if p.lower() not in saltar][:3]
+    if not ini:
+        ini = [nombre[:1].upper()]
+    txt = "".join(ini)
+    color = PALETA[sum(ord(c) for c in nombre) % len(PALETA)]
+    return ('<span class="mono" style="background:{c}" aria-hidden="true">{t}</span>'
+            .format(c=color, t=txt))
 
 
 def directorio():
@@ -210,7 +302,7 @@ def directorio():
             '<tr data-ambito="{a}" data-sector="{s}" data-nombre="{n}">'
             '<td><strong>{n}</strong></td><td>{a}</td><td>{s}</td>'
             '<td><a href="https://{d}" target="_blank" rel="nofollow noopener">{d}</a></td></tr>'.format(
-                n=nombre, d=dominio, a=ambito, s=sector))
+                n=nombre, d=dominio, a=ambito, s=sector, m=monograma(nombre)))
 
     opciones_a = "".join('<option value="{0}">{0}</option>'.format(a) for a in ambitos)
     opciones_s = "".join('<option value="{0}">{0}</option>'.format(s) for s in sectores)

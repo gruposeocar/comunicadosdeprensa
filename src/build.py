@@ -8,6 +8,7 @@ OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dist")
 
 NAV = [
     ("Servicios", "/publicar-nota-de-prensa/"),
+    ("Comunicados", "/comunicados/"),
     ("Enlaces en prensa", "/comprar-enlaces-prensa/"),
     ("Medios", "/medios/"),
     ("Guia", "/guia/"),
@@ -34,8 +35,11 @@ img{max-width:100%;height:auto}
 /* cabecera */
 header.top{border-bottom:1px solid var(--linea);background:#fff;position:sticky;top:0;z-index:50}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
-.logo{font-family:Georgia,serif;font-weight:700;font-size:20px;color:var(--tinta);letter-spacing:-.3px;white-space:nowrap}
-.logo span{color:var(--acento)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none!important}
+.logo svg{flex:0 0 34px}
+.logo-txt{font-family:Georgia,serif;font-weight:700;font-size:20px;color:var(--tinta);letter-spacing:-.4px;white-space:nowrap}
+.logo-txt span{color:var(--acento)}
+@media(max-width:480px){.logo-txt{font-size:17px}}
 nav.main{display:flex;gap:22px;align-items:center}
 nav.main a{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
   font-size:15px;color:var(--tinta-2);font-weight:500}
@@ -153,6 +157,20 @@ footer.pie a{color:#c9ced6}
 .pie-abajo{border-top:1px solid #2b3139;padding-top:22px;font-size:13px;color:#8b94a0;
   display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
+/* figuras y monogramas */
+.fig{margin:34px 0;padding:0}
+.fig svg{width:100%;height:auto;display:block;border:1px solid var(--linea);
+  border-radius:var(--radio);background:#fff}
+.fig figcaption{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  font-size:14px;color:var(--tinta-3);margin-top:10px;line-height:1.5}
+.svg-t{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.mono{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;
+  border-radius:7px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  font-size:12px;font-weight:700;color:#fff;letter-spacing:.3px;flex:0 0 34px}
+.medio-cel{display:flex;align-items:center;gap:11px}
+.plan .cobertura{margin:16px 0 4px}
+.plan .cobertura svg{width:100%;height:auto}
+
 @media(max-width:900px){
   .cols{grid-template-columns:1fr;gap:34px}
   .aside{position:static}
@@ -193,7 +211,17 @@ BASE = """<!DOCTYPE html>
 <body>
 <header class="top">
   <div class="wrap">
-    <a href="/" class="logo">Comunicados<span>dePrensa</span></a>
+    <a href="/" class="logo" aria-label="ComunicadosdePrensa.es, inicio">
+      <svg viewBox="0 0 40 40" width="34" height="34" aria-hidden="true" focusable="false">
+        <rect x="3" y="4" width="28" height="32" rx="4" fill="#fff" stroke="var(--acento)" stroke-width="2.4"/>
+        <rect x="8" y="10" width="18" height="4" rx="1.4" fill="var(--acento)"/>
+        <rect x="8" y="18" width="18" height="2.2" rx="1.1" fill="#9aa4b1"/>
+        <rect x="8" y="23" width="18" height="2.2" rx="1.1" fill="#9aa4b1"/>
+        <rect x="8" y="28" width="11" height="2.2" rx="1.1" fill="#9aa4b1"/>
+        <circle cx="32" cy="9" r="6" fill="var(--destacado)"/>
+      </svg>
+      <span class="logo-txt">Comunicados<span>dePrensa</span></span>
+    </a>
     <nav class="main" id="nav">{nav}</nav>
     <div style="display:flex;gap:10px;align-items:center">
       <a href="/precios/#cotizar" class="btn">Publicar mi nota</a>
@@ -206,7 +234,15 @@ BASE = """<!DOCTYPE html>
   <div class="wrap">
     <div class="pie-rejilla">
       <div>
-        <div class="pie-logo">ComunicadosdePrensa.es</div>
+        <div class="pie-logo">
+          <svg viewBox="0 0 40 40" width="26" height="26" aria-hidden="true" style="vertical-align:-6px;margin-right:7px">
+            <rect x="3" y="4" width="28" height="32" rx="4" fill="none" stroke="#fff" stroke-width="2.4"/>
+            <rect x="8" y="10" width="18" height="4" rx="1.4" fill="#fff"/>
+            <rect x="8" y="18" width="18" height="2.2" rx="1.1" fill="#6b7482"/>
+            <rect x="8" y="23" width="18" height="2.2" rx="1.1" fill="#6b7482"/>
+            <rect x="8" y="28" width="11" height="2.2" rx="1.1" fill="#6b7482"/>
+            <circle cx="32" cy="9" r="6" fill="var(--destacado)"/>
+          </svg>ComunicadosdePrensa.es</div>
         <p style="color:#8b94a0;line-height:1.6;margin:0">Redaccion, publicacion y distribucion de notas de prensa para empresas y profesionales en Espana.</p>
       </div>
       <div>
@@ -216,6 +252,7 @@ BASE = """<!DOCTYPE html>
           <li><a href="/enviar-nota-de-prensa/">Enviar a medios</a></li>
           <li><a href="/comprar-nota-de-prensa/">Comprar nota de prensa</a></li>
           <li><a href="/comprar-enlaces-prensa/">Enlaces en prensa</a></li>
+          <li><a href="/comunicados/">Comunicados por sector</a></li>
           <li><a href="/precios/">Precios</a></li>
         </ul>
       </div>

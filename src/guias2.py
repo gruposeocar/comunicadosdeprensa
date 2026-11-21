@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Ejemplos, plantilla y casos concretos"""
 from guias import guia
+from graficos import linea_evento
 
 EJ = """
 <div style="border:1px solid var(--linea);border-left:4px solid var(--acento);
@@ -232,6 +233,7 @@ def evento():
     c = """
 <p>Un evento no lleva una nota de prensa: lleva tres, y cada una tiene un objetivo distinto. Enviar
 solo la primera, que es lo habitual, desaprovecha la mitad de la cobertura posible.</p>
+{LINEA}
 
 <h2>Nota 1: la convocatoria (10-15 dias antes)</h2>
 <p>El objetivo no es que publiquen nada, es que <strong>vaya un periodista</strong>. Por eso es corta y
@@ -305,6 +307,7 @@ las tres notas y la gestion de entrevistas.</p>
          "Por eso existe la nota del mismo dia con fotos en alta: un medio que no pudo ir puede publicar "
          "con tu material si le llega en las primeras horas."),
     ]
+    c = c.replace("{LINEA}", linea_evento())
     return guia("/guia/nota-de-prensa-evento/",
                 "Nota de prensa para un evento",
                 "Nota de prensa de un evento: las 3 que hay que enviar",

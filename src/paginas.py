@@ -2,6 +2,7 @@
 """Paginas comerciales"""
 from build import (escribir, migas, faq_html, FORMULARIO, CAJA_LATERAL,
                    ORG, servicio_schema, articulo_schema)
+from graficos import proceso, tasa_publicacion
 
 
 def home():
@@ -9,13 +10,13 @@ def home():
 <section class="hero">
   <div class="wrap">
     <h1>Un comunicado de prensa que los medios publican</h1>
-    <p class="entradilla">Lo escribimos, lo publicamos y lo enviamos a los periodistas de tu sector.
-    Sin cuotas, sin permanencia y con el enlace y la cobertura por escrito antes de que pagues.</p>
+    <p class="entradilla">Lo escribimos y lo publicamos en 50 periodicos digitales como minimo, con
+    enlace a tu web. Publicacion garantizada o te devolvemos el dinero. Sin permanencia.</p>
     <div class="hero-cta">
       <a href="/precios/#cotizar" class="btn lg">Pedir presupuesto</a>
       <a href="/guia/" class="btn ghost lg">Aprender a escribirlo</a>
     </div>
-    <p class="hero-nota">Respuesta en menos de 24&nbsp;horas &middot; Desde 95&nbsp;&euro; por nota</p>
+    <p class="hero-nota">Respuesta en menos de 24&nbsp;horas &middot; Desde 179&nbsp;&euro; al mes, sin permanencia</p>
   </div>
 </section>
 
@@ -44,6 +45,7 @@ def home():
         encontrar el angulo que si interesa.</p>
       </div>
     </div>
+    <div style="max-width:860px;margin:10px auto 0">{tasa}</div>
   </div>
 </div>
 
@@ -51,6 +53,7 @@ def home():
   <div class="wrap">
     <h2>Como trabajamos</h2>
     <p class="sub">Cuatro pasos. Tu solo intervienes en el primero y en el visto bueno.</p>
+    <div style="max-width:860px;margin:0 auto 30px">{proceso}</div>
     <div class="rejilla dos">
       <div class="caja">
         <div class="num">Paso 1</div>
@@ -67,14 +70,14 @@ def home():
       <div class="caja">
         <div class="num">Paso 3</div>
         <h3>La publicamos y la distribuimos</h3>
-        <p>Se publica en nuestro medio y se envia a los periodistas que cubren tu sector y tu provincia,
-        uno a uno, no en copia oculta masiva.</p>
+        <p>Se publica en los periodicos digitales de tu plan, con enlace a tu web y entrada en Google
+        News. La publicacion esta garantizada por contrato.</p>
       </div>
       <div class="caja">
         <div class="num">Paso 4</div>
         <h3>Te pasamos el informe</h3>
-        <p>Listado de medios donde ha salido, enlaces y a quien se ha enviado. Sin cifras infladas:
-        lo que hay es lo que ves.</p>
+        <p>El enlace directo a cada periodico que la ha publicado, para que lo compruebes tu mismo.
+        Sin cifras infladas: lo que hay es lo que ves.</p>
       </div>
     </div>
   </div>
@@ -114,10 +117,10 @@ def home():
         ahi pero hay que buscarla por otro lado.</p>
 
         <h2>Que incluye el servicio</h2>
-        <p>Redaccion periodistica completa, revision contigo, publicacion con enlace a tu web,
-        distribucion segmentada a medios y un informe final con todo lo que ha salido. Puedes ver el
-        detalle y las tarifas en la <a href="/precios/">pagina de precios</a>, o empezar por
-        <a href="/publicar-nota-de-prensa/">publicar una nota de prensa</a> si ya la tienes escrita.</p>
+        <p>Redaccion periodistica completa, revision contigo, publicacion garantizada con enlace a tu web
+        en los periodicos de tu plan, entrada en Google News y un informe con el enlace de cada medio.
+        Puedes ver el detalle y las tarifas en la <a href="/precios/">pagina de precios</a>, y que es
+        noticia en tu sector en <a href="/comunicados/">comunicados por categoria</a>.</p>
       </div>
       {caja}
     </div>
@@ -164,14 +167,14 @@ def home():
 """
     preguntas = [
         ("Cuanto cuesta publicar un comunicado de prensa",
-         "Desde 95 euros la nota suelta, que incluye redaccion, publicacion y distribucion basica. "
-         "Los planes con distribucion ampliada y seguimiento van de 195 a 395 euros. No hay cuotas "
-         "mensuales obligatorias ni permanencia."),
+         "Desde 179 euros al mes, con redaccion incluida y publicacion garantizada en 50 periodicos "
+         "digitales. Los planes de 349 y 599 euros amplian la cobertura a 70 y 80 medios y anaden "
+         "distribucion por agencia nacional. Sin permanencia."),
         ("Garantizais que salga publicado",
-         "Garantizamos la publicacion en nuestro medio con enlace, y el envio a los periodistas del "
-         "sector. Lo que ningun servicio serio puede garantizar es que un medio ajeno decida publicarla: "
-         "esa decision es del redactor. Quien te garantice cobertura en prensa generalista te esta "
-         "vendiendo humo o publicidad encubierta."),
+         "Si. La nota se publica en el numero de periodicos digitales de tu plan o te devolvemos el "
+         "dinero, y recibes el enlace de cada uno. Lo que nadie puede garantizarte es que un periodista "
+         "de prensa generalista decida ademas escribir su propia noticia sobre ti: eso depende de que lo "
+         "que cuentes le interese."),
         ("Cuanto tarda",
          "El borrador lo tienes en 48 horas laborables desde que nos cuentas la noticia. Una vez lo "
          "apruebas, la publicacion y el envio salen el mismo dia. Si tienes una fecha limite, dilo al "
@@ -180,22 +183,23 @@ def home():
          "Si. En ese caso solo cobramos la publicacion y la distribucion, que sale mas barato. La "
          "revisamos igualmente y te avisamos si vemos algo que vaya a hacer que la descarten."),
         ("Los enlaces son dofollow",
-         "En las publicaciones de pago en medios, si, y se indica en cada caso. En nuestro propio medio "
-         "el enlace es nofollow por defecto, que es lo que marcan las directrices de Google para notas "
-         "de prensa. Si lo que buscas es enlace SEO, mira la pagina de "
-         "<a href='/comprar-enlaces-prensa/'>enlaces en prensa</a>, que es un servicio distinto."),
+         "Depende del medio, y en el informe se indica cual es cual. Si lo que buscas concretamente es "
+         "autoridad SEO con enlaces dofollow en cabeceras que elijas tu, lo que te encaja es "
+         "<a href='/comprar-enlaces-prensa/'>enlaces en prensa</a>, que es un servicio distinto y se "
+         "presupuesta por medio."),
         ("Trabajais con empresas de fuera de Galicia",
          "Si, trabajamos en toda Espana. Tenemos mas musculo en medios gallegos por cercania, pero la "
          "distribucion es nacional y segmentada por sector."),
     ]
     faq, faq_ld = faq_html(preguntas)
-    cuerpo = cuerpo.format(caja=CAJA_LATERAL, faq=faq, form=FORMULARIO)
+    cuerpo = cuerpo.format(caja=CAJA_LATERAL, faq=faq, form=FORMULARIO,
+                           tasa=tasa_publicacion(), proceso=proceso())
     return escribir("/", "Comunicado de prensa: redaccion, publicacion y envio a medios",
-                    "Escribimos, publicamos y distribuimos tu comunicado de prensa a los medios de tu sector. "
-                    "Desde 95 euros, sin permanencia. Presupuesto en 24 horas.",
+                    "Escribimos y publicamos tu comunicado de prensa en 50 periodicos digitales como minimo, "
+                    "con enlace a tu web. Desde 179 euros al mes, sin permanencia.",
                     cuerpo, [ORG, faq_ld,
-                             servicio_schema("Redaccion y distribucion de comunicados de prensa",
-                                             "Servicio de redaccion periodistica, publicacion y envio a medios.", 95)])
+                             servicio_schema("Redaccion y publicacion garantizada de comunicados de prensa",
+                                             "Redaccion periodistica y publicacion garantizada en periodicos digitales.", 179)])
 
 
 def pagina_servicio(ruta, h1, titulo, desc, entradilla, secciones, preguntas, activo="",

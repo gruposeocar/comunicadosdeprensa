@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Paginas de servicio orientadas a conversion"""
 from build import escribir, migas, faq_html, FORMULARIO, CAJA_LATERAL, servicio_schema, articulo_schema
+from graficos import cobertura, comparativa, proceso, tasa_publicacion
 from paginas import pagina_servicio
 
 
@@ -366,6 +367,7 @@ es una publicacion contratada, con medio concreto, fecha y enlace pactados por e
 a tu web, y eso mueve posiciones en Google para las palabras clave que trabajes.</p>
 
 <h2>En que se diferencia de una nota de prensa</h2>
+{COMPARATIVA}
 <table>
   <tr><th></th><th>Nota de prensa</th><th>Enlace en prensa</th></tr>
   <tr><td>Objetivo</td><td>Cobertura y notoriedad</td><td>Autoridad SEO</td></tr>
@@ -417,6 +419,7 @@ publicacion. Tu apruebas los que quieras. Redaccion del articulo incluida.</p>
          "Google y el riesgo existe. Lo reducimos escalonando fechas, variando dominios y usando anchors "
          "naturales, pero no te vamos a decir que el riesgo sea cero."),
     ]
+    sec_c = sec.replace("{COMPARATIVA}", comparativa())
     return pagina_servicio(
         "/comprar-enlaces-prensa/", "Comprar enlaces en prensa",
         "Comprar enlaces en prensa: medios verificados y precio por medio",
@@ -424,103 +427,105 @@ publicacion. Tu apruebas los que quieras. Redaccion del articulo incluida.</p>
         "herramienta independiente, precio por medio y fechas escalonadas.",
         "Publicaciones patrocinadas con enlace dofollow en medios digitales. Verificamos las metricas de "
         "cada medio por nuestra cuenta, porque las de los catalogos casi nunca cuadran.",
-        sec, preguntas, "/comprar-enlaces-prensa/")
+        sec_c, preguntas, "/comprar-enlaces-prensa/")
 
 
 def precios():
     bar, bar_ld = migas([("Inicio", "/"), ("Precios", None)])
     preguntas = [
-        ("Hay permanencia o cuota mensual",
-         "No. Se paga por trabajo. Si quieres una nota al mes te hacemos precio de plan, pero puedes "
-         "parar cuando quieras sin penalizacion."),
+        ("Que significa publicacion garantizada",
+         "Que la nota se publica en el numero de medios del plan o te devolvemos el dinero. No es una "
+         "estimacion ni una previsión: es el compromiso que adquirimos al cobrarte."),
+        ("Hay permanencia",
+         "No. Se paga mes a mes y se cancela cuando quieras. Si un mes no tienes nada que contar, lo pausas "
+         "y no pagas."),
+        ("Que pasa si un mes no publico",
+         "El plan no se acumula de un mes para otro, asi que si no vas a publicar conviene pausarlo. "
+         "Avisanos antes de la renovacion y no se cobra."),
         ("Los precios llevan IVA",
-         "Los precios mostrados son sin IVA. Facturamos desde Grupo Seocar S.L. con el 21% correspondiente."),
-        ("Que pasa si mi noticia no da para nota de prensa",
-         "Te lo decimos antes de cobrarte y buscamos otro enfoque. Si no lo hay, no te cobramos nada por "
-         "esa consulta."),
-        ("Hacen falta varias notas para que funcione",
-         "No necesariamente. Una nota con una noticia buena rinde mas que seis con relleno. La constancia "
-         "ayuda a construir relacion con periodistas, pero solo si hay algo que contar cada vez."),
+         "Los importes mostrados son sin IVA. Facturamos desde Grupo Seocar S.L. con el 21% correspondiente."),
+        ("Puedo ver en que medios ha salido",
+         "Si. Con cada publicacion recibes un informe con el enlace directo a cada medio que la ha publicado."),
+        ("Y si solo quiero una nota suelta",
+         "Los planes son mensuales y sin permanencia, asi que contratar un mes y pausarlo equivale a una "
+         "nota suelta. Es la forma mas barata de probarlo."),
     ]
     faq, faq_ld = faq_html(preguntas)
+    planes = [
+        ("Basico", "Para empezar y probarlo", 179, 50,
+         ["Redaccion periodistica incluida", "Publicacion en 50 medios digitales",
+          "Enlace a tu web en cada publicacion", "Indexacion en Google News",
+          "Informe con el enlace de cada medio", "Publicacion en 2 a 5 dias"], False),
+        ("Alcance", "El que contrata casi todo el mundo", 349, 70,
+         ["Todo lo del plan Basico", "Publicacion en 70 medios digitales",
+          "Distribucion por agencia nacional", "Optimizacion para buscadores con IA",
+          "Publicacion en 1 a 3 dias", "Revision del texto contigo"], True),
+        ("Autoridad", "Para lanzamientos y marcas", 599, 80,
+         ["Todo lo del plan Alcance", "Publicacion en 80 medios digitales",
+          "Distribucion por dos agencias nacionales", "Prioridad de publicacion",
+          "Asesoramiento sobre el angulo noticiable", "Informe ampliado de repercusion"], False),
+    ]
+    tarjetas = ""
+    for nombre, lema, precio, medios_n, puntos, destacado in planes:
+        lis = "".join("<li>{}</li>".format(p) for p in puntos)
+        tarjetas += """
+  <div class="plan{dest}">
+    {etq}
+    <h3>{nombre}</h3>
+    <p style="color:var(--tinta-3);font-size:15px;margin:0">{lema}</p>
+    <div class="precio">{precio} <small>&euro;/mes</small></div>
+    <p style="font-size:14px;color:var(--tinta-3);margin:0">sin IVA, sin permanencia</p>
+    <div class="cobertura">{cob}</div>
+    <ul>{lis}</ul>
+    <a href="#cotizar" class="btn{ghost}">Empezar con {nombre}</a>
+  </div>""".format(
+            dest=" destacado" if destacado else "",
+            etq='<span class="etiqueta">El mas contratado</span>' if destacado else "",
+            nombre=nombre, lema=lema, precio=precio, lis=lis,
+            ghost="" if destacado else " ghost",
+            cob=cobertura(medios_n, "{} MEDIOS".format(medios_n)))
+
     cuerpo = """
 {bar}
 <main><div class="wrap">
 <article style="max-width:760px;padding-top:26px">
 <h1>Precios</h1>
-<p class="entradilla">Sin cuotas, sin permanencia y con el precio cerrado antes de empezar.
-Si tu caso no encaja en ninguno de los tres, lo presupuestamos aparte.</p>
+<p class="entradilla">Planes mensuales con publicacion garantizada. Si tu nota no sale en el numero de
+medios contratado, te devolvemos el dinero. Sin permanencia: pausas el mes que no tengas nada que contar.</p>
 </article>
 
 <div class="precios" style="margin:40px 0 20px">
-  <div class="plan">
-    <h3>Basico</h3>
-    <p style="color:var(--tinta-3);font-size:15px;margin:0">Para anuncios puntuales</p>
-    <div class="precio">95 <small>&euro;</small></div>
-    <p style="font-size:14px;color:var(--tinta-3);margin:0">por nota, sin IVA</p>
-    <ul>
-      <li>Redaccion periodistica completa</li>
-      <li>Dos titulares alternativos</li>
-      <li>Publicacion con enlace permanente</li>
-      <li>Version para redes sociales</li>
-      <li>Revisiones hasta que la apruebes</li>
-    </ul>
-    <a href="#cotizar" class="btn ghost">Empezar</a>
-  </div>
-  <div class="plan destacado">
-    <span class="etiqueta">El mas contratado</span>
-    <h3>Distribucion</h3>
-    <p style="color:var(--tinta-3);font-size:15px;margin:0">Para llegar a periodistas</p>
-    <div class="precio">195 <small>&euro;</small></div>
-    <p style="font-size:14px;color:var(--tinta-3);margin:0">por nota, sin IVA</p>
-    <ul>
-      <li>Todo lo del plan Basico</li>
-      <li>Seleccion de medios por sector y provincia</li>
-      <li>Envio individual a cada periodista</li>
-      <li>Seguimiento a las 48 horas</li>
-      <li>Informe con medios y enlaces conseguidos</li>
-      <li>Imagen preparada al formato de redaccion</li>
-    </ul>
-    <a href="#cotizar" class="btn">Empezar</a>
-  </div>
-  <div class="plan">
-    <h3>Campana</h3>
-    <p style="color:var(--tinta-3);font-size:15px;margin:0">Para lanzamientos</p>
-    <div class="precio">395 <small>&euro;</small></div>
-    <p style="font-size:14px;color:var(--tinta-3);margin:0">por campana, sin IVA</p>
-    <ul>
-      <li>Todo lo del plan Distribucion</li>
-      <li>Estrategia y calendario de la campana</li>
-      <li>Hasta tres notas escalonadas</li>
-      <li>Dossier de prensa completo</li>
-      <li>Gestion de entrevistas si surgen</li>
-      <li>Informe final de repercusion</li>
-    </ul>
-    <a href="#cotizar" class="btn ghost">Empezar</a>
-  </div>
+{tarjetas}
 </div>
 
 <div style="max-width:760px">
 <article>
-<h2>Enlaces en prensa</h2>
-<p>Se presupuestan aparte porque el precio depende del medio: va desde unos 50&nbsp;&euro; en prensa local
-pequena hasta mas de 600&nbsp;&euro; en cabeceras nacionales. Te pasamos la propuesta con el precio y las
-metricas verificadas de cada medio antes de contratar nada. Mas detalle en
+<h2>Que incluyen todos los planes</h2>
+<p>La redaccion la hacemos nosotros: nos cuentas que quieres anunciar y te devolvemos el texto escrito en
+formato periodistico para que lo apruebes. Nada se publica sin tu visto bueno.</p>
+<p>Cada publicacion lleva enlace a tu web, queda indexada y entra en Google News. Al terminar recibes un
+informe con el enlace directo a cada medio donde ha salido, para que puedas comprobarlo tu mismo o
+enviarselo a quien quieras.</p>
+
+<h2>Enlaces en prensa, aparte</h2>
+<p>Los enlaces en medios concretos se presupuestan por separado, porque el precio depende de la autoridad
+de cada cabecera: desde unos 50&nbsp;&euro; en prensa local hasta mas de 600&nbsp;&euro; en cabeceras
+nacionales. Es un producto distinto y lo explicamos en
 <a href="/comprar-enlaces-prensa/">comprar enlaces en prensa</a>.</p>
 
 <h2>Descuentos</h2>
 <table>
   <tr><th>Situacion</th><th>Descuento</th></tr>
-  <tr><td>Nos envias la nota ya escrita</td><td>-30&nbsp;&euro; sobre el plan elegido</td></tr>
-  <tr><td>Contratacion de 3 notas o mas</td><td>-15%</td></tr>
-  <tr><td>Plan mensual continuado</td><td>-20% desde el segundo mes</td></tr>
+  <tr><td>Pago trimestral por adelantado</td><td>-10%</td></tr>
+  <tr><td>Pago anual por adelantado</td><td>-20%</td></tr>
   <tr><td>Agencias y revendedores</td><td>Tarifa en marca blanca, consultar</td></tr>
+  <tr><td>Asociaciones y colegios profesionales</td><td>Condiciones para sus asociados</td></tr>
 </table>
 
 <h2>Lo que no cobramos</h2>
-<p>La consulta inicial, las revisiones del texto, la correccion de datos despues de publicar y el
-informe de resultados. Tampoco cobramos si al escuchar tu caso vemos que no da para nota de prensa:
-preferimos decirtelo a venderte algo que no va a funcionar.</p>
+<p>La consulta inicial, las revisiones del texto hasta que lo apruebes y el informe final. Tampoco
+cobramos si al escuchar tu caso vemos que no da para nota de prensa: preferimos decirtelo a venderte
+algo que no va a funcionar.</p>
 
 {faq}
 
@@ -530,11 +535,11 @@ preferimos decirtelo a venderte algo que no va a funcionar.</p>
 </article>
 </div>
 </div></main>
-""".format(bar=bar, faq=faq, form=FORMULARIO)
-    return escribir("/precios/", "Precios de notas de prensa: desde 95 euros sin permanencia",
-                    "Tarifas de redaccion, publicacion y distribucion de notas de prensa. Tres planes desde "
-                    "95 euros, sin cuotas ni permanencia. Enlaces en prensa presupuestados por medio.",
+""".format(bar=bar, tarjetas=tarjetas, faq=faq, form=FORMULARIO)
+    return escribir("/precios/", "Precios: planes de notas de prensa desde 179 euros al mes",
+                    "Planes mensuales de notas de prensa con publicacion garantizada en 50, 70 u 80 medios "
+                    "digitales. Desde 179 euros al mes, sin permanencia y con informe de resultados.",
                     cuerpo, [bar_ld, faq_ld,
-                             servicio_schema("Redaccion y distribucion de notas de prensa",
-                                             "Planes de nota de prensa desde 95 euros", 95)],
+                             servicio_schema("Publicacion garantizada de notas de prensa",
+                                             "Planes mensuales con publicacion garantizada en medios digitales", 179)],
                     "/precios/")
