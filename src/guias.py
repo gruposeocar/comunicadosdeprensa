@@ -91,6 +91,38 @@ Publicado entero y gratis: no hay registro, ni correo que dejar, ni PDF que desc
 </div>
 
 <div style="max-width:760px;margin-top:50px">
+<h2>Por donde empezar segun tu caso</h2>
+<p>Si es la primera vez que escribes una, el orden que funciona es este: comprueba que tienes noticia,
+aprende la estructura, mira un ejemplo parecido al tuyo y copia la plantilla. Son unas dos horas la
+primera vez y bastante menos a partir de la segunda.</p>
+<p>Si ya has escrito notas antes y lo que te falla es que no te publican, el problema casi nunca esta en
+el texto: esta en a quien se la mandas y en que momento. Ve directo a
+<a href="/enviar-nota-de-prensa/">como enviarla</a> y al <a href="/medios/">directorio de medios</a>.</p>
+<p>Y si lo que tienes es un evento, no empieces por la nota: empieza por la
+<a href="/guia/nota-de-prensa-evento/">convocatoria</a>, que se manda dos semanas antes y es la que
+determina si va a ir alguien.</p>
+
+<h2>Lo que mas cambia el resultado</h2>
+<p>Despues de bastantes notas, estas son las tres cosas que mas diferencia marcan, por orden:</p>
+<ol>
+  <li><strong>Tener un dato propio.</strong> Una cifra que nadie mas puede dar multiplica por varias
+  veces las posibilidades de publicacion. Si no la tienes, calculala: tus propios registros suelen dar
+  para un dato interesante.</li>
+  <li><strong>Escribir el titular como lo publicaria el medio.</strong> No como lo pondrias en tu web.
+  Ponle delante el hecho, no el nombre de tu empresa.</li>
+  <li><strong>Mandarsela a la persona correcta.</strong> Quince periodistas bien elegidos rinden mas que
+  doscientas direcciones genericas, y no te queman como remitente.</li>
+</ol>
+<p>Lo que menos importa, al contrario de lo que suele pensarse: la maquetacion, el logotipo y la
+extension exacta. Ninguna redaccion ha descartado nunca una noticia buena por el tipo de letra.</p>
+
+<h2>Cuanto tarda en dar resultado</h2>
+<p>La primera nota casi nunca sale, y conviene saberlo antes de desanimarse. Lo que construye cobertura
+es la constancia: a partir de la tercera o la cuarta, si las anteriores eran serias y no les hiciste
+perder el tiempo, los periodistas empiezan a abrir tus correos. Ese es el activo real, y tarda meses.</p>
+<p>Si necesitas resultado inmediato porque tienes un lanzamiento con fecha, lo que te encaja es un plan
+con <a href="/precios/">publicacion garantizada</a>, que no depende de que un redactor decida.</p>
+
 <h2>Por que publicamos esto gratis</h2>
 <p>Porque la mayoria de la gente que busca como escribir una nota de prensa va a escribirla ella misma,
 y eso esta bien. Si la guia te sirve y la escribes tu, perfecto. Y si en algun momento prefieres no

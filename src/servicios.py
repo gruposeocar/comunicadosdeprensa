@@ -36,6 +36,40 @@ y una <a href="/guia/plantilla-nota-de-prensa/">plantilla en blanco</a>, las dos
 <p>Si nos mandas el texto hecho, el mismo dia laborable. Si la escribimos nosotros, el borrador en 48
 horas y la publicacion en cuanto des el visto bueno. Para lanzamientos con fecha, avisa al pedir
 presupuesto y lo reservamos.</p>
+
+<h2>Publicar y que te publiquen no es lo mismo</h2>
+<p>Conviene tener clara la diferencia porque determina lo que puedes esperar:</p>
+<ul>
+  <li><strong>Publicar</strong> es que tu nota aparezca en periodicos digitales con tu enlace. Eso te lo
+  garantizamos por contrato y depende de nosotros.</li>
+  <li><strong>Que te publiquen</strong> es que un redactor lea tu nota, le interese y escriba su propia
+  noticia sobre ti. Eso no lo garantiza nadie, porque depende de que lo que cuentes le parezca
+  relevante.</li>
+</ul>
+<p>Lo primero te da presencia, enlaces e indexacion desde el primer mes. Lo segundo te da credibilidad
+de otro nivel y llega con el tiempo, si lo que publicas merece la pena. Un buen plan busca lo primero y
+deja abierta la puerta a lo segundo.</p>
+
+<h2>Que pasa despues de publicar</h2>
+<p>Lo que casi nadie te cuenta es que la nota publicada no termina su recorrido ahi. Estas cuatro cosas
+multiplican su rendimiento y no cuestan dinero:</p>
+<ol>
+  <li><strong>Enlazala desde tu web</strong>, en una seccion de prensa o de noticias. Refuerza tu
+  credibilidad ante cualquiera que te este evaluando.</li>
+  <li><strong>Compartela en tus redes y en tu newsletter</strong>, pero enlazando al medio, no copiando
+  el texto. Que lo diga otro es justamente lo que le da valor.</li>
+  <li><strong>Usala en tu proceso comercial.</strong> Mandar el enlace de un periodico a un cliente que
+  esta decidiendo pesa mas que cualquier folleto.</li>
+  <li><strong>Guardala.</strong> Al cabo de un ano tienes un dossier de prensa que sirve para
+  licitaciones, bancos, inversores y para la siguiente nota.</li>
+</ol>
+
+<h2>Cada cuanto conviene publicar</h2>
+<p>Para una pyme, entre cuatro y ocho notas al ano. Es decir, una cada mes o dos. Por debajo de eso no
+construyes presencia; por encima, acabas publicando cosas que no son noticia, que es peor que no
+publicar.</p>
+<p>La regla practica: si al contarle la noticia a alguien de fuera de tu empresa se le nota que le
+interesa, hay nota. Si tienes que explicarle por que deberia importarle, todavia no.</p>
 """
     preguntas = [
         ("Cuanto cuesta publicar una nota de prensa",
@@ -90,6 +124,34 @@ esta publicada entera y gratis, con ejemplos y plantillas.</p>
   <li>La publicacion con enlace permanente, si contratas el pack completo.</li>
   <li>El informe de distribucion con los medios a los que ha ido.</li>
 </ul>
+
+<h2>Hacerla tu o encargarla: las cuentas</h2>
+<p>Merece la pena hacer el calculo honesto antes de decidir, porque no siempre compensa encargarla:</p>
+<table>
+  <tr><th></th><th>Hacerla tu</th><th>Encargarla</th></tr>
+  <tr><td>Coste directo</td><td>0 &euro;</td><td>Desde 179 &euro;/mes</td></tr>
+  <tr><td>Tu tiempo</td><td>4 a 6 horas la primera</td><td>20 minutos de conversacion</td></tr>
+  <tr><td>Publicacion</td><td>Depende del redactor</td><td>Garantizada en el plan</td></tr>
+  <tr><td>Lista de medios</td><td>La construyes tu</td><td>Incluida</td></tr>
+  <tr><td>Si sale mal</td><td>Repetir y aprender</td><td>Se rehace o se devuelve</td></tr>
+</table>
+<p>Si tu hora vale mas de 40&nbsp;&euro; y no vas a escribir notas de forma habitual, encargarla sale a
+cuenta. Si tienes tiempo y vas a convertirlo en una rutina, aprende a hacerlo: la
+<a href="/guia/">guia esta publicada entera</a> y no te vamos a vender lo contrario.</p>
+
+<h2>Como encontramos el angulo</h2>
+<p>Es la parte del trabajo que mas valor aporta y la que menos se ve. Cuando nos cuentas lo que quieres
+anunciar, buscamos tres cosas en este orden:</p>
+<ol>
+  <li><strong>El dato que solo tu tienes.</strong> Casi todas las empresas tienen cifras propias sin
+  explotar: contratos firmados, consultas recibidas, precios medios, tiempos. Ahi suele estar la noticia.</li>
+  <li><strong>La primera vez.</strong> Ser el primero en algo, aunque sea en tu comarca, es noticiable
+  por definicion.</li>
+  <li><strong>El impacto en alguien que no eres tu.</strong> Cuanta gente se ve afectada, cuanto se
+  ahorra, que cambia para el vecino de al lado.</li>
+</ol>
+<p>Si no aparece ninguna de las tres, te lo decimos: no hay noticia todavia, y conviene esperar a
+tenerla en vez de gastar una bala.</p>
 
 <h2>Pago y facturacion</h2>
 <p>Se paga por trabajo, no por suscripcion. Factura con IVA emitida por Grupo Seocar S.L., y no hay
@@ -206,6 +268,30 @@ envio directo a periodistas rinde mucho mas. Si lo que buscas es autoridad SEO, 
 por sector, con enlace a la pagina de contacto de cada uno. Es gratuito, no pide registro y lo vamos
 ampliando.</p>
 
+<h2>Como evaluar un portal antes de pagarle</h2>
+<p>Si vas a contratar por tu cuenta, estas cinco comprobaciones te evitan la mayoria de los disgustos:</p>
+<ol>
+  <li><strong>Busca el portal en Google por su nombre.</strong> Si no aparece ni para su propia marca,
+  mal empezamos.</li>
+  <li><strong>Mira una nota publicada hace seis meses.</strong> Si la URL ya no existe, retiran el
+  contenido y lo que compras caduca.</li>
+  <li><strong>Comprueba el enlace en el codigo.</strong> Si lleva <em>rel="nofollow"</em> o
+  <em>sponsored</em>, no te va a dar autoridad SEO. Puede seguir valiendo para otras cosas, pero que lo
+  sepas antes.</li>
+  <li><strong>Contrasta el trafico con una herramienta independiente.</strong> Las cifras del propio
+  catalogo casi nunca cuadran con las de Semrush o Ahrefs.</li>
+  <li><strong>Mira quien mas publica ahi.</strong> Si el portal esta lleno de casinos, criptomonedas y
+  clinicas capilares, la compania no te conviene.</li>
+</ol>
+
+<h2>Senales de alarma</h2>
+<ul>
+  <li>Prometen cobertura garantizada en cabeceras generalistas de primer nivel por poco dinero.</li>
+  <li>No te dicen en que medios concretos va a salir hasta despues de pagar.</li>
+  <li>El precio es el mismo para un medio local y para uno nacional.</li>
+  <li>No entregan informe con los enlaces reales de cada publicacion.</li>
+</ul>
+
 <h2>Donde la publicamos nosotros</h2>
 <p>En nuestro propio medio, con URL permanente y enlace a tu web, y en los medios con los que trabajamos
 cuando el tema encaja. Ademas la enviamos a los periodistas del sector. El detalle esta en
@@ -256,6 +342,31 @@ conseguir cobertura ni autoridad.</p>
 publicidad encubierta que pagas de otra forma, o la publicacion es en un subdominio sin valor, o
 simplemente no va a ocurrir. Recuerda el dato: solo entre el tres y el cinco por ciento de las notas
 enviadas acaban publicadas, y las que lo consiguen es porque tenian algo que contar.</p>
+
+<h2>El correo que hay que escribir</h2>
+<p>La nota perfecta mal enviada no sirve de nada, y el correo de envio es donde casi todo el mundo
+falla. Este guion funciona:</p>
+<ul>
+  <li><strong>Asunto:</strong> el titular de la noticia, tal cual. Nada de "nota de prensa de empresa X".</li>
+  <li><strong>Primera linea:</strong> por que le escribes a esa persona en concreto. Porque cubre ese
+  sector, porque escribio algo parecido, porque es de esa comarca.</li>
+  <li><strong>Dos lineas</strong> resumiendo la noticia, no la empresa.</li>
+  <li><strong>La nota completa</strong> pegada debajo, en el cuerpo del correo.</li>
+  <li><strong>Tu telefono</strong> al final, y que alguien lo coja.</li>
+</ul>
+<p>Lo tienes listo para copiar en la <a href="/guia/plantilla-nota-de-prensa/">plantilla</a>.</p>
+
+<h2>Cuanto tiempo lleva hacerlo gratis</h2>
+<table>
+  <tr><th>Tarea</th><th>La primera vez</th><th>Con practica</th></tr>
+  <tr><td>Encontrar el angulo</td><td>1 hora</td><td>15 minutos</td></tr>
+  <tr><td>Escribir la nota</td><td>2 a 3 horas</td><td>45 minutos</td></tr>
+  <tr><td>Montar la lista de medios</td><td>2 horas</td><td>Ya la tienes</td></tr>
+  <tr><td>Enviar uno a uno</td><td>1 hora</td><td>1 hora</td></tr>
+  <tr><td>Seguimiento</td><td>30 minutos</td><td>30 minutos</td></tr>
+</table>
+<p>Entre seis y siete horas la primera vez. Si lo conviertes en rutina baja a dos o tres, porque la
+lista de medios y el boilerplate ya no se rehacen.</p>
 
 <h2>Cuando conviene pagar</h2>
 <p>Cuando no tienes la tarde, cuando el lanzamiento tiene fecha y no admite ensayo, o cuando ya lo
