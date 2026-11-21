@@ -100,6 +100,15 @@ RewriteCond %{HTTP_HOST} ^www\\.(.*)$ [NC]
 RewriteRule ^(.*)$ https://%1/$1 [L,R=301]
 
 ErrorDocument 404 /404.html
+
+# Nada de codigo fuente ni metadatos del repositorio accesibles por web
+RedirectMatch 404 ^/src/
+RedirectMatch 404 ^/README\\.md$
+RedirectMatch 404 ^/\\.git
+RedirectMatch 404 ^/\\.gitignore$
+<FilesMatch "\\.(py|md|yml|yaml|json|lock)$">
+Require all denied
+</FilesMatch>
 """
 with open(os.path.join(OUT, ".htaccess"), "w", encoding="utf-8") as f:
     f.write(HTACCESS)
